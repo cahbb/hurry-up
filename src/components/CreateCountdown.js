@@ -4,69 +4,41 @@ import '../css/App.css'
 
 class CreateCountdown extends Component {
   state = {
-    countdownTitle: this.props.countdownTitle,
-    countdownDay: this.props.countdownDay,
-    countdownMonth: this.props.countdownMonth,
-    countdownTime: this.props.countdownTime
+    title: this.props.title,
+    targetTime: this.props.targetTime
   }
 
-  onCountdownTitleChange = (e) => {
-    this.setState({ countdownTitle: e.target.value })
+  handeChange = (e) => {
+    const name = e.target.name
+    this.setState({ [name]: e.target.value })
   }
 
-  onCountdownDayChange = (e) => {
-    this.setState({ countdownDay: e.target.value })
-  }
-
-  onCountdownMonthChange = (e) => {
-    this.setState({ countdownMonth: e.target.value })
-  }
-
-  onCountdownTimeChange = (e) => {
-    this.setState({ countdownTime: e.target.value })
-  }
-
-  addCountdown = (e) => {
+  startCounter = (e) => {
     e.preventDefault()
 
-    this.props.addCountdown (
-      this.state.countdownTitle,
-      this.state.countdownDay,
-      this.state.countdownMonth,
-      this.state.countdownTime
+    const date = new Date()
+    const now = Date.now()
+    const target = this.state.targetTime.split(':')
+    const targetDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), target[0], target[1])
+    const remainingTime = targetDate - Date.now()
+
+    this.props.startCounter (
+      this.state.title,
+      this.state.targetTime,
+      remainingTime,
+      now
     )
   }
 
   render() {
     return (
-      <form onSubmit={ this.addCountdown } >
+      <form onSubmit={ this.startCounter } >
         <label htmlFor="countdown-title">Celebrate</label>
-        <input
-          id="countdown-title"
-          type="text"
-          value={ this.state.countdownTitle }
-          onChange={ this.onCountdownTitleChange } />
+        <input name="title" id="countdown-title" type="text" onChange={ this.handeChange } />
         <hr/>
 
-        <label htmlFor="countdown-day">On</label>
-        <input
-          id="countdown-day"
-          type="text"
-          value={ this.state.countdownDay }
-          onChange={ this.onCountdownDayChange } />
-        <input
-          id="countdown-month"
-          type="text"
-          value={ this.state.countdownMonth }
-          onChange={ this.onCountdownMonthChange } />
-        <hr/>
-
-        <label htmlFor="countdown-time">At</label>
-        <input
-          id="countdown-time"
-          type="text"
-          value={ this.state.countdownTime }
-          onChange={ this.onCountdownTimeChange } />
+        <label htmlFor="countdown-targetTime">At</label>
+        <input name="targetTime" id="countdown-targetTime" type="text" onChange={ this.handeChange } />
         <hr/>
 
         <input type="submit" value="Start your Hurry up!" />
@@ -76,7 +48,7 @@ class CreateCountdown extends Component {
 }
 
 CreateCountdown.propTypes = {
-  addCountdown: PropTypes.func.isRequired
+  startCounter: PropTypes.func.isRequired
 }
 
 export default CreateCountdown

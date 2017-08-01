@@ -1,21 +1,36 @@
 import * as CountdownActionTypes from '../actiontypes/countdown'
 
 const initialState = {
-  countdownTitle: 'burger time',
-  countdownDay: '20',
-  countdownMonth: 'July',
-  countdownTime: '20:07'
+  title: '',
+  targetTime: '',
+  isCounting: false,
+  remainingTime: 0,
+  previousTime: 0
 }
 
-export default function Player(state=initialState, action) {
+export default function Countdown(state=initialState, action) {
   switch(action.type) {
-    case CountdownActionTypes.ADD_COUNTDOWN: {
+    case CountdownActionTypes.START_COUNTER: {
       return {
         ...state,
-        countdownTitle: action.countdownTitle,
-        countdownDay: action.countdownDay,
-        countdownMonth: action.countdownMonth,
-        countdownTime: action.countdownTime
+        title: action.title,
+        targetTime: action.targetTime,
+        isCounting: true,
+        remainingTime: action.remainingTime,
+        previousTime: action.previousTime
+      }
+    }
+    case CountdownActionTypes.STOP_COUNTER: {
+      return {
+        ...state,
+        isCounting: false
+      }
+    }
+    case CountdownActionTypes.DECREMENT_COUNTER: {
+      return {
+        ...state,
+        previousTime: action.previousTime,
+        remainingTime: action.remainingTime
       }
     }
     default:

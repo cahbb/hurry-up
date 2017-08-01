@@ -7,33 +7,37 @@ import * as CountdownActionCreators from '../actions/countdown'
 
 class Countdown extends Component {
   render() {
-    const { dispatch, countdownTitle, countdownDay, countdownMonth, countdownTime } = this.props
-    const addCountdown = bindActionCreators(CountdownActionCreators.addCountdown, dispatch)
+    const { dispatch, title, targetTime, isCounting, remainingTime, previousTime } = this.props
+    const startCounter = bindActionCreators(CountdownActionCreators.startCounter, dispatch)
+    const stopCounter = bindActionCreators(CountdownActionCreators.stopCounter, dispatch)
+    const decrementCounter = bindActionCreators(CountdownActionCreators.decrementCounter, dispatch)
 
     return (
       <div className="countdown">
         <CreateCountdown
-          countdownTitle = { countdownTitle }
-          countdownDay = { countdownDay }
-          countdownMonth = { countdownMonth }
-          countdownTime = { countdownTime }
-          addCountdown = { addCountdown } />
+          startCounter = { startCounter }
+        />
         <hr/>
         <Counting 
-          countdownTitle = { countdownTitle }
-          countdownDay = { countdownDay }
-          countdownMonth = { countdownMonth }
-          countdownTime = { countdownTime } />
+          title = { title }
+          targetTime = { targetTime }
+          isCounting = { isCounting }
+          remainingTime = { remainingTime }
+          previousTime = { previousTime }
+          decrementCounter = { decrementCounter }
+          stopCounter = { stopCounter }
+        />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  countdownTitle: state.countdownTitle,
-  countdownDay: state.countdownDay,
-  countdownMonth: state.countdownMonth,
-  countdownTime: state.countdownTime
+  title: state.title,
+  targetTime: state.targetTime,
+  isCounting: state.isCounting,
+  remainingTime: state.remainingTime,
+  previousTime: state.previousTime
 })
  
 export default connect(mapStateToProps)(Countdown)
