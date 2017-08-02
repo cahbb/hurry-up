@@ -7,7 +7,7 @@ import * as CountdownActionCreators from '../actions/countdown'
 
 class Countdown extends Component {
   render() {
-    const { dispatch, title, targetTime, isCounting, remainingTime, previousTime } = this.props
+    const { dispatch, title, isCounting, remainingTime, previousTime } = this.props
     const startCounter = bindActionCreators(CountdownActionCreators.startCounter, dispatch)
     const stopCounter = bindActionCreators(CountdownActionCreators.stopCounter, dispatch)
     const decrementCounter = bindActionCreators(CountdownActionCreators.decrementCounter, dispatch)
@@ -15,18 +15,15 @@ class Countdown extends Component {
     return (
       <div className="countdown">
         <CreateCountdown
-          startCounter = { startCounter }
-        />
+          startCounter = { startCounter } />
         <hr/>
         <Counting 
           title = { title }
-          targetTime = { targetTime }
           isCounting = { isCounting }
           remainingTime = { remainingTime }
           previousTime = { previousTime }
           decrementCounter = { decrementCounter }
-          stopCounter = { stopCounter }
-        />
+          stopCounter = { stopCounter } />
       </div>
     )
   }
@@ -34,7 +31,6 @@ class Countdown extends Component {
 
 const mapStateToProps = (state) => ({
   title: state.title,
-  targetTime: state.targetTime,
   isCounting: state.isCounting,
   remainingTime: state.remainingTime,
   previousTime: state.previousTime

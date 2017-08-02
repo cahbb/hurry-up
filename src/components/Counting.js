@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Counting extends Component {
-
   componentDidMount() {
     this.interval = setInterval(this.onTick, 1000)
   }
@@ -13,29 +12,53 @@ class Counting extends Component {
 
   onTick = () => {
     if (this.props.isCounting) {
-      if (this.props.remainingTime <= 0) {
+      if (this.props.remainingTime < 1) {
         this.props.stopCounter()
       } else {
-        let now = Date.now()
+        const now = Date.now()
+        let remainingTime = this.props.remainingTime - (now - this.props.previousTime)
+
         this.props.decrementCounter(
-          this.props.remainingTime - (now - this.props.previousTime),
-          now
+          remainingTime,  //remainingTime
+          now             //previousTime
         )
       }
     }
   }
 
   render() {
-    let s = this.props.remainingTime / 1000
-    let m = s / 60
-    let h = m / 60
+    const s = Math.floor(this.props.remainingTime / 1000)
+    const m = Math.floor(s / 60)
+    const h = Math.floor(m / 60)
+
+    let hours = `${h % 24} hours`
+    if (h % 24 === 1) {
+      hours = hours.slice(0, -1)
+    } else if (h % 24 === 0) {
+      hours = ''
+    }
+
+    let minutes = `${m % 60} minutes`
+    if (m % 60 === 1) {
+      minutes = minutes.slice(0, -1)
+    } else if (m % 60 === 0) {
+      minutes = ''
+    }
+
+    let seconds = `${s % 60} seconds`
+    if (s % 60 === 1) {
+      seconds = seconds.slice(0, -1)
+    } else if (m === 0 && s === 0) {
+      seconds = ''
+    }
+
     return (
       <div className="counting">
         <p>Celebrate: { this.props.title }</p>
         <p>In:
-          { h <= 0 ? '' : `${Math.floor(h % 24)} hours` }
-          { m <= 0 ? '' : `${Math.floor(m % 60)} min` }
-          { s <= 0 ? '' : `${Math.floor(s % 60)} seconds` }
+          { hours }
+          { minutes }
+          { seconds }
         </p>
       </div>
     )
@@ -44,8 +67,11 @@ class Counting extends Component {
 
 Counting.PropTypes = {
   title: PropTypes.string.isRequired,
-  targetTime: PropTypes.string.isRequired,
-  isCounting: PropTypes.bool.isRequired
+  isCounting: PropTypes.bool.isRequired,
+  remainingTime: PropTypes.number.isRequired,
+  previousTime: PropTypes.number.isRequired,
+  decrementCounter: PropTypes.func.isRequired,
+  stopCounter: PropTypes.func.isRequired
 }
 
 export default Counting

@@ -27,10 +27,14 @@ export default function Countdown(state=initialState, action) {
       }
     }
     case CountdownActionTypes.DECREMENT_COUNTER: {
+      let remainingTime = action.remainingTime
+      if (action.remainingTime < 0) {
+        remainingTime = 0
+      }
       return {
         ...state,
         previousTime: action.previousTime,
-        remainingTime: action.remainingTime
+        remainingTime: remainingTime
       }
     }
     default:

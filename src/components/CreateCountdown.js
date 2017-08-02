@@ -4,8 +4,8 @@ import '../css/App.css'
 
 class CreateCountdown extends Component {
   state = {
-    title: this.props.title,
-    targetTime: this.props.targetTime
+    title: '',
+    targetTime: ''
   }
 
   handeChange = (e) => {
@@ -23,10 +23,10 @@ class CreateCountdown extends Component {
     const remainingTime = targetDate - Date.now()
 
     this.props.startCounter (
-      this.state.title,
-      this.state.targetTime,
-      remainingTime,
-      now
+      this.state.title,       //title
+      this.state.targetTime,  //targetTime
+      remainingTime,          //remainingTime
+      now                     //previousTime
     )
   }
 
