@@ -1,3 +1,4 @@
 export const START_COUNTER = 'START_COUNTER'
 export const STOP_COUNTER = 'STOP_COUNTER'
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
+export const SET_THEME = 'SET_THEME'

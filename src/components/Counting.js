@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import ChooseTheme from '../components/ChooseTheme'
+import '../css/counting.css'
 
 class Counting extends Component {
   componentDidMount() {
@@ -12,56 +14,57 @@ class Counting extends Component {
 
   onTick = () => {
     if (this.props.isCounting) {
-      if (this.props.remainingTime < 1) {
+      if (this.props.remainingTime < 1) { // fix this
         this.props.stopCounter()
       } else {
         const now = Date.now()
         let remainingTime = this.props.remainingTime - (now - this.props.previousTime)
 
         this.props.decrementCounter(
-          remainingTime,  //remainingTime
-          now             //previousTime
+          remainingTime, //remainingTime
+          now            //previousTime
         )
       }
     }
   }
 
   render() {
-    const s = Math.floor(this.props.remainingTime / 1000)
-    const m = Math.floor(s / 60)
-    const h = Math.floor(m / 60)
+    if (this.props.isCounting) {
+      const s = Math.floor(this.props.remainingTime / 1000)
+      const m = Math.floor(s / 60)
+      const h = Math.floor(m / 60)
 
-    let hours = `${h % 24} hours`
-    if (h % 24 === 1) {
-      hours = hours.slice(0, -1)
-    } else if (h % 24 === 0) {
-      hours = ''
+      let hours = `${h % 24} hours`
+      if (h % 24 === 1) {
+        hours = hours.slice(0, -1)
+      } else if (h % 24 === 0) {
+        hours = ''
+      }
+
+      let minutes = `${m % 60} minutes`
+      if (m % 60 === 1) {
+        minutes = minutes.slice(0, -1)
+      } else if (m % 60 === 0) {
+        minutes = ''
+      }
+
+      let seconds = `${s % 60} seconds`
+      if (s % 60 === 1) {
+        seconds = seconds.slice(0, -1)
+      } else if (m === 0 && s === 0) {
+        seconds = ''
+      }
+
+      return (
+        <div className="counting">
+          <p>It's { this.props.title } in</p>
+          <p>{ hours } { minutes } { seconds }</p>
+          <ChooseTheme setTheme = { this.props.setTheme } />
+        </div>
+      )
+    } else {
+      return false
     }
-
-    let minutes = `${m % 60} minutes`
-    if (m % 60 === 1) {
-      minutes = minutes.slice(0, -1)
-    } else if (m % 60 === 0) {
-      minutes = ''
-    }
-
-    let seconds = `${s % 60} seconds`
-    if (s % 60 === 1) {
-      seconds = seconds.slice(0, -1)
-    } else if (m === 0 && s === 0) {
-      seconds = ''
-    }
-
-    return (
-      <div className="counting">
-        <p>Celebrate: { this.props.title }</p>
-        <p>In:
-          { hours }
-          { minutes }
-          { seconds }
-        </p>
-      </div>
-    )
   }
 }
 
@@ -71,7 +74,8 @@ Counting.PropTypes = {
   remainingTime: PropTypes.number.isRequired,
   previousTime: PropTypes.number.isRequired,
   decrementCounter: PropTypes.func.isRequired,
-  stopCounter: PropTypes.func.isRequired
+  stopCounter: PropTypes.func.isRequired,
+  setTheme: PropTypes.func.isRequired
 }
 
 export default Counting

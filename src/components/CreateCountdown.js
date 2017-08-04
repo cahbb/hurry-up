@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import '../css/App.css'
+import ChooseTheme from '../components/ChooseTheme'
+import '../css/form.css'
 
 class CreateCountdown extends Component {
   state = {
@@ -19,41 +20,49 @@ class CreateCountdown extends Component {
 
     const date = new Date()
     const now = Date.now()
-    const fullYear = date.getFullYear()
-    const m = date.getMonth()
-    const d = date.getDate()
     const targetHours = this.state.targetTimeHours
     const targetMinutes = this.state.targetTimeMinutes
-    const targetDate = new Date(fullYear, m, d, targetHours, targetMinutes)
+    const targetDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), targetHours, targetMinutes)
+    console.log(targetDate)
     const remainingTime = targetDate - Date.now()
 
     this.props.startCounter (
-      this.state.title,  //title
-      remainingTime,     //remainingTime
-      now                //previousTime
+      this.state.title, //title
+      remainingTime,    //remainingTime
+      now               //previousTime
     )
   }
 
   render() {
-    return (
-      <form onSubmit={ this.startCounter } >
-        <label htmlFor="countdown-title">Celebrate</label>
-        <input name="title" id="countdown-title" type="text" onChange={ this.handeChange } />
-        <hr/>
+    if (!this.props.isCounting) {
+      return (
+        <div className="create-countdown">
+          <form onSubmit={ this.startCounter } >
+            <div className="input-group">
+              <label htmlFor="countdown-title">It's</label>
+              <input className="input-title" name="title" id="countdown-title" type="text" onChange={ this.handeChange } />
+            </div>
 
-        <label htmlFor="countdown-targetTime">At</label>
-        <input name="targetTimeHours" id="countdown-targetTime" type="number" min={0} max={23} onChange={ this.handeChange } />:
-        <input name="targetTimeMinutes" id="countdown-targetTime" type="number" min={0} max={59} onChange={ this.handeChange } />
-        <hr/>
-
-        <input type="submit" value="Start your Hurry up!" />
-      </form>
-    )
+            <div className="input-group">
+              <label htmlFor="countdown-target-time-hours">At</label>
+              <input className="input-time" name="targetTimeHours" id="countdown-target-time-hours" type="number" min={0} max={23} onChange={ this.handeChange } />
+              <span className="colon">:</span>
+              <input className="input-time" name="targetTimeMinutes" id="countdown-target-time-minutes" type="number" min={0} max={59} onChange={ this.handeChange } />
+              <input type="submit" className="btn" value="Hurry up!" />
+            </div>
+          </form>
+          <ChooseTheme setTheme = { this.props.setTheme } />
+        </div>
+      )
+    } else {
+      return false
+    }
   }
 }
 
 CreateCountdown.propTypes = {
-  startCounter: PropTypes.func.isRequired
+  startCounter: PropTypes.func.isRequired,
+  setTheme: PropTypes.func.isRequired
 }
 
 export default CreateCountdown

@@ -22,3 +22,10 @@ export const decrementCounter = (remainingTime, previousTime) => {
     previousTime
   }
 }
+
+export const setTheme = (theme) => {
+  return {
+    type: CountdownActionTypes.SET_THEME,
+    theme
+  }
+}

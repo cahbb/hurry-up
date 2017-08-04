@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import CountdownReducer from './reducers/countdown'
 import registerServiceWorker from './registerServiceWorker'
-import './css/App.css'
+import './css/base.css'
 
 const store = createStore(
   CountdownReducer,

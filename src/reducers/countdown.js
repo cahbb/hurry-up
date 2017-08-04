@@ -2,6 +2,7 @@ import * as CountdownActionTypes from '../actiontypes/countdown'
 
 const initialState = {
   title: '',
+  theme: 'blue-diagonal',
   isCounting: false,
   remainingTime: 0,
   previousTime: 0
@@ -13,7 +14,6 @@ export default function Countdown(state=initialState, action) {
       return {
         ...state,
         title: action.title,
-        targetTime: action.targetTime,
         isCounting: true,
         remainingTime: action.remainingTime,
         previousTime: action.previousTime
@@ -34,6 +34,12 @@ export default function Countdown(state=initialState, action) {
         ...state,
         previousTime: action.previousTime,
         remainingTime: remainingTime
+      }
+    }
+    case CountdownActionTypes.SET_THEME: {
+      return {
+        ...state,
+        theme: action.theme
       }
     }
     default:
