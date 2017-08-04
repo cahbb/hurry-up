@@ -2,7 +2,6 @@ import * as CountdownActionTypes from '../actiontypes/countdown'
 
 const initialState = {
   title: '',
-  targetTime: '',
   isCounting: false,
   remainingTime: 0,
   previousTime: 0

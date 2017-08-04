@@ -1,10 +1,9 @@
 import * as CountdownActionTypes from '../actiontypes/countdown'
 
-export const startCounter = (title, targetTime, remainingTime, previousTime) => {
+export const startCounter = (title, remainingTime, previousTime) => {
   return {
     type: CountdownActionTypes.START_COUNTER,
     title,
-    targetTime,
     remainingTime,
     previousTime
   }

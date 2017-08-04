@@ -5,7 +5,8 @@ import '../css/App.css'
 class CreateCountdown extends Component {
   state = {
     title: '',
-    targetTime: ''
+    targetTimeHours: '',
+    targetTimeMinutes: ''
   }
 
   handeChange = (e) => {
@@ -18,15 +19,18 @@ class CreateCountdown extends Component {
 
     const date = new Date()
     const now = Date.now()
-    const target = this.state.targetTime.split(':')
-    const targetDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), target[0], target[1])
+    const fullYear = date.getFullYear()
+    const m = date.getMonth()
+    const d = date.getDate()
+    const targetHours = this.state.targetTimeHours
+    const targetMinutes = this.state.targetTimeMinutes
+    const targetDate = new Date(fullYear, m, d, targetHours, targetMinutes)
     const remainingTime = targetDate - Date.now()
 
     this.props.startCounter (
-      this.state.title,       //title
-      this.state.targetTime,  //targetTime
-      remainingTime,          //remainingTime
-      now                     //previousTime
+      this.state.title,  //title
+      remainingTime,     //remainingTime
+      now                //previousTime
     )
   }
 
@@ -38,7 +42,8 @@ class CreateCountdown extends Component {
         <hr/>
 
         <label htmlFor="countdown-targetTime">At</label>
-        <input name="targetTime" id="countdown-targetTime" type="text" onChange={ this.handeChange } />
+        <input name="targetTimeHours" id="countdown-targetTime" type="number" min={0} max={23} onChange={ this.handeChange } />:
+        <input name="targetTimeMinutes" id="countdown-targetTime" type="number" min={0} max={59} onChange={ this.handeChange } />
         <hr/>
 
         <input type="submit" value="Start your Hurry up!" />
