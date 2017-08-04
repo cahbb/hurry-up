@@ -1,14 +1,39 @@
-.blue-diagonal {
-  background: #0072d4;
-  background: -moz-linear-gradient(45deg, #0072d4 0%, #30007f 62%, #1c134b 95%);
-  background: -webkit-linear-gradient(45deg, #0072d4 0%,#30007f 62%,#1c134b 95%);
-  background: linear-gradient(45deg, #0072d4 0%,#30007f 62%,#1c134b 95%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0072d4', endColorstr='#1c134b',GradientType=1 );
+.green-purple-horizontal {
+  background: #00e1bf;
+  background: linear-gradient(to bottom, #00e1bf 0%,#4c2ac9 100%);
 }
+.green-purple-horizontal .btn { color: #4c2ac9; }
+.green-purple-horizontal .btn:hover { color: #00e1bf; }
+.green-purple-horizontal input:focus { border-color: #00e1bf; }
+
 .blue-red-pink-horizontal {
   background: #192057;
-  background: -moz-linear-gradient(top, #192057 0%, #d81646 70%, #ffe0ff 100%);
-  background: -webkit-linear-gradient(top, #192057 0%,#d81646 70%,#ffe0ff 100%);
   background: linear-gradient(to bottom, #192057 0%,#d81646 70%,#ffe0ff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#192057', endColorstr='#ffe0ff',GradientType=0 );
 }
+.blue-red-pink-horizontal .btn { color: #192057; }
+.blue-red-pink-horizontal .btn:hover { color: #ffe0ff; }
+.blue-red-pink-horizontal input:focus { border-color: #ffe0ff; }
+
+.yellow-orange-pink-horizontal {
+  background: #fed22c;
+  background: linear-gradient(to bottom, #fed22c 0%,#fb5045 50%,#b914b4 100%);
+}
+.yellow-orange-pink-horizontal .btn { color: #fed22c; }
+.yellow-orange-pink-horizontal .btn:hover { color: #b914b4; }
+.yellow-orange-pink-horizontal input:focus { border-color: #fed22c; }
+
+.turquoise-blue-diagonal {
+  background: #5ef581;
+  background: linear-gradient(45deg, #5ef581 0%,#00acff 100%);
+}
+.turquoise-blue-diagonal .btn { color: #00acff; }
+.turquoise-blue-diagonal .btn:hover { color: #5ef581; }
+.turquoise-blue-diagonal input:focus { border-color: #00acff; }
+
+.blue-red-diagonal {
+  background: #2c2ac9;
+  background: linear-gradient(45deg, #2c2ac9 0%,#ff0042 100%);
+}
+.blue-red-diagonal .btn { color: #2c2ac9; }
+.blue-red-diagonal .btn:hover { color: #ff0042; }
+.blue-red-diagonal input:focus { border-color: #2c2ac9; }

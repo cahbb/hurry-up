@@ -2,7 +2,7 @@ import * as CountdownActionTypes from '../actiontypes/countdown'
 
 const initialState = {
   title: '',
-  theme: 'blue-diagonal',
+  theme: 'green-purple-horizontal',
   isCounting: false,
   remainingTime: 0,
   previousTime: 0

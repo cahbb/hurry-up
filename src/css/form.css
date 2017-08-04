@@ -7,7 +7,7 @@
   margin-bottom: 2rem;
 }
 input {
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   border-radius: 1rem;
   height: 6rem;
   font-size: 4rem;
@@ -15,12 +15,12 @@ input {
   font-family: 'Montserrat', sans-serif;
   align-self: flex-start;
   text-align: center;
-  transition: border-color .15s cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition: all .15s cubic-bezier(0.65, 0.05, 0.36, 1);
   background-color: transparent;
 }
 input:focus {
   outline: none;
-  border-color: #192057;
+  box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.15);
 }
 .input-title {
   width: 450px;
@@ -49,8 +49,8 @@ input::-webkit-inner-spin-button {
   padding-left: 2rem;
   margin-left: 2rem;
   color: #192057;
-  box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.1);
-  transition: transform .15s cubic-bezier(0.65, 0.05, 0.36, 1);
+  box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.15);
+  transition: all .15s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 .btn:hover {
   transform: scale(1.05);

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ChooseTheme from '../components/ChooseTheme'
 import '../css/form.css'
+import '../css/themes.css'
 
 class CreateCountdown extends Component {
   state = {
@@ -39,15 +40,15 @@ class CreateCountdown extends Component {
         <div className="create-countdown">
           <form onSubmit={ this.startCounter } >
             <div className="input-group">
-              <label htmlFor="countdown-title">It's</label>
-              <input className="input-title" name="title" id="countdown-title" type="text" onChange={ this.handeChange } />
+              <label>It's</label>
+              <input className="input-title" name="title" type="text" onChange={ this.handeChange } />
             </div>
 
             <div className="input-group">
-              <label htmlFor="countdown-target-time-hours">At</label>
-              <input className="input-time" name="targetTimeHours" id="countdown-target-time-hours" type="number" min={0} max={23} onChange={ this.handeChange } />
+              <label>At</label>
+              <input className="input-time" name="targetTimeHours" type="number" min={0} max={23} onChange={ this.handeChange } />
               <span className="colon">:</span>
-              <input className="input-time" name="targetTimeMinutes" id="countdown-target-time-minutes" type="number" min={0} max={59} onChange={ this.handeChange } />
+              <input className="input-time" name="targetTimeMinutes" type="number" min={0} max={59} onChange={ this.handeChange } />
               <input type="submit" className="btn" value="Hurry up!" />
             </div>
           </form>
