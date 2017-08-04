@@ -4,6 +4,8 @@ import Counting from '../components/Counting'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as CountdownActionCreators from '../actions/countdown'
+import '../css/countdown.css'
+import '../css/gradients.css'
 
 class Countdown extends Component {
   render() {
@@ -13,7 +15,7 @@ class Countdown extends Component {
     const decrementCounter = bindActionCreators(CountdownActionCreators.decrementCounter, dispatch)
 
     return (
-      <div className="countdown">
+      <div className="countdown blue-diagonal">
         <CreateCountdown
           startCounter = { startCounter } />
         <hr/>
