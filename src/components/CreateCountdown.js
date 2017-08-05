@@ -24,7 +24,6 @@ class CreateCountdown extends Component {
     const targetHours = this.state.targetTimeHours
     const targetMinutes = this.state.targetTimeMinutes
     const targetDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), targetHours, targetMinutes)
-    console.log(targetDate)
     const remainingTime = targetDate - Date.now()
 
     this.props.startCounter (
@@ -35,7 +34,7 @@ class CreateCountdown extends Component {
   }
 
   render() {
-    if (!this.props.isCounting) {
+    if (!this.props.isCounting && !this.props.hasBeenCounting) {
       return (
         <div className="create-countdown">
           <form onSubmit={ this.startCounter } >
@@ -62,6 +61,8 @@ class CreateCountdown extends Component {
 }
 
 CreateCountdown.propTypes = {
+  isCounting: PropTypes.bool.isRequired,
+  hasBeenCounting: PropTypes.bool.isRequired,
   startCounter: PropTypes.func.isRequired,
   setTheme: PropTypes.func.isRequired
 }

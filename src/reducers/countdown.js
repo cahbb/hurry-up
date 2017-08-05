@@ -5,7 +5,8 @@ const initialState = {
   theme: 'green-purple-horizontal',
   isCounting: false,
   remainingTime: 0,
-  previousTime: 0
+  previousTime: 0,
+  hasBeenCounting: false
 }
 
 export default function Countdown(state=initialState, action) {
@@ -22,7 +23,8 @@ export default function Countdown(state=initialState, action) {
     case CountdownActionTypes.STOP_COUNTER: {
       return {
         ...state,
-        isCounting: false
+        isCounting: false,
+        hasBeenCounting: true
       }
     }
     case CountdownActionTypes.DECREMENT_COUNTER: {

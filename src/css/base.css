@@ -12,4 +12,5 @@ body {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
