@@ -14,7 +14,8 @@ class Counting extends Component {
 
   onTick = () => {
     if (this.props.isCounting) {
-      if (this.props.remainingTime < 1) { // fix this
+      const s = Math.floor(this.props.remainingTime / 1000)
+      if (s === 0) {
         this.props.stopCounter()
       } else {
         const now = Date.now()
@@ -51,8 +52,6 @@ class Counting extends Component {
       let seconds = `${s % 60} seconds`
       if (s % 60 === 1) {
         seconds = seconds.slice(0, -1)
-      } else if (m === 0 && s === 0) {
-        seconds = ''
       }
 
       return (
