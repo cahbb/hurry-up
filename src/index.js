@@ -5,7 +5,7 @@ import Countdown from './containers/Countdown'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import CountdownReducer from './reducers/countdown'
-import './assets/css/base.css'
+import './assets/styles/base.css'
 
 ReactGA.initialize('UA-91764840-2')
 

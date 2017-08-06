@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactGA from 'react-ga'
-import '../assets/css/choose-theme.css'
+import '../assets/styles/components/ChooseTheme.css'
 
 const ChooseTheme = props => {
   return (

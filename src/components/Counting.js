@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ChooseTheme from '../components/ChooseTheme'
-import '../assets/css/counting.css'
+import '../assets/styles/components/Counting.css'
 
 class Counting extends Component {
   componentDidMount() {

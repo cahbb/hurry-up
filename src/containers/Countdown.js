@@ -5,8 +5,8 @@ import * as CountdownActionCreators from '../actions/countdown'
 import CreateCountdown from '../components/CreateCountdown'
 import Counting from '../components/Counting'
 import CountdownSummary from '../components/CountdownSummary'
-import '../assets/css/countdown.css'
-import '../assets/css/themes.css'
+import '../assets/styles/components/Countdown.css'
+import '../assets/styles/components/Themes.css'
 
 class Countdown extends Component {
   render() {

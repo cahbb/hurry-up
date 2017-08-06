@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../assets/css/fireworks.css'
+import '../assets/styles/components/Fireworks.css'
 
 const CountdownSummary = props => {
   if (!props.isCounting && props.hasBeenCounting) {
