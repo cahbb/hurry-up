@@ -7,6 +7,7 @@
   margin-bottom: 2rem;
 }
 input {
+  appearance: none;
   border: 3px solid #fff;
   border-radius: 1rem;
   height: 6rem;
