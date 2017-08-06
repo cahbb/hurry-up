@@ -6,7 +6,7 @@ const CountdownSummary = props => {
   if (!props.isCounting && props.hasBeenCounting) {
     return (
       <div className="countdown-summary">
-        <p>Finally it's { props.title }</p>
+        <p>It's { props.title }</p>
         <div className="pyro">
           <div className="before"></div>
           <div className="after"></div>
