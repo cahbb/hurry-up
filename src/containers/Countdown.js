@@ -5,8 +5,8 @@ import * as CountdownActionCreators from '../actions/countdown'
 import CreateCountdown from '../components/CreateCountdown'
 import Counting from '../components/Counting'
 import CountdownSummary from '../components/CountdownSummary'
-import '../css/countdown.css'
-import '../css/themes.css'
+import '../assets/css/countdown.css'
+import '../assets/css/themes.css'
 
 class Countdown extends Component {
   render() {
@@ -18,7 +18,7 @@ class Countdown extends Component {
 
     return (
       <div className={ `countdown ${theme}` }>
-        <img className="logo" src={require('../images/logo.svg')} alt="hurry up!"/>
+        <img className="logo" src={require('../assets/images/logo.svg')} alt="hurry up!"/>
         <CreateCountdown
           isCounting = { isCounting }
           hasBeenCounting = { hasBeenCounting }

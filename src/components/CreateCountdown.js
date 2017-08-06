@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ChooseTheme from '../components/ChooseTheme'
-import '../css/form.css'
-import '../css/themes.css'
+import '../assets/css/form.css'
+import '../assets/css/themes.css'
 
 class CreateCountdown extends Component {
   state = {

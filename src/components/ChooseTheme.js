@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/choose-theme.css'
+import '../assets/css/choose-theme.css'
 
 const ChooseTheme = props => {
   return (
