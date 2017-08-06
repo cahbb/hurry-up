@@ -8,5 +8,8 @@
 .logo {
   height: 2.5rem;
   position: absolute;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
   top: 2rem;
 }
