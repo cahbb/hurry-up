@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
 
-const Theme = props => {
+const ThemePreview = props => {
   return (
     <div className={ `theme circle ${props.theme}` } onClick={ () => {
       props.setTheme(props.theme)
@@ -10,4 +11,9 @@ const Theme = props => {
   )
 }
 
-export default Theme
+ThemePreview.propTypes = {
+  theme: PropTypes.string.isRequired,
+  setTheme: PropTypes.func.isRequired
+}
+
+export default ThemePreview

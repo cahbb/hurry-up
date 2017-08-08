@@ -1,17 +1,32 @@
 import React from 'react'
-import Theme from './Theme'
+import PropTypes from 'prop-types'
+import ThemePreview from './ThemePreview'
 import '../assets/styles/components/ChooseTheme.css'
 
 const ChooseTheme = props => {
   return (
     <div className="choose-theme">
-      <Theme theme='green-purple-horizontal'/>
-      <Theme theme='blue-red-pink-horizontal'/>
-      <Theme theme='yellow-orange-pink-horizontal'/>
-      <Theme theme='turquoise-blue-diagonal'/>
-      <Theme theme='blue-red-diagonal'/>
+      <ThemePreview
+        setTheme={ props.setTheme }
+        theme='green-purple-horizontal'/>
+      <ThemePreview
+        setTheme={ props.setTheme }
+        theme='blue-red-pink-horizontal'/>
+      <ThemePreview
+        setTheme={ props.setTheme }
+        theme='yellow-orange-pink-horizontal'/>
+      <ThemePreview
+        setTheme={ props.setTheme }
+        theme='turquoise-blue-diagonal'/>
+      <ThemePreview
+        setTheme={ props.setTheme }
+        theme='blue-red-diagonal'/>
     </div>
   )
+}
+
+ChooseTheme.propTypes = {
+  setTheme: PropTypes.func.isRequired
 }
 
 export default ChooseTheme
