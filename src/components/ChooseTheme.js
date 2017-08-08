@@ -1,30 +1,15 @@
 import React from 'react'
-import ReactGA from 'react-ga'
+import Theme from './Theme'
 import '../assets/styles/components/ChooseTheme.css'
 
 const ChooseTheme = props => {
   return (
     <div className="choose-theme">
-      <div className="theme circle green-purple-horizontal" onClick={ () => {
-        props.setTheme('green-purple-horizontal')
-        ReactGA.event({category: 'Themes', action: 'Selected a theme', label: 'green-purple-horizontal'})
-      }}></div>
-      <div className="theme circle blue-red-pink-horizontal" onClick={ () => {
-        props.setTheme('blue-red-pink-horizontal')
-        ReactGA.event({category: 'Themes', action: 'Selected a theme', label: 'blue-red-pink-horizontal'})
-      }}></div>
-      <div className="theme circle yellow-orange-pink-horizontal" onClick={ () => {
-        props.setTheme('yellow-orange-pink-horizontal')
-        ReactGA.event({category: 'Themes', action: 'Selected a theme', label: 'yellow-orange-pink-horizontal'})
-      }}></div>
-      <div className="theme circle turquoise-blue-diagonal" onClick={ () => {
-        props.setTheme('turquoise-blue-diagonal')
-        ReactGA.event({category: 'Themes', action: 'Selected a theme', label: 'turquoise-blue-diagonal'})
-      }}></div>
-      <div className="theme circle blue-red-diagonal" onClick={ () => {
-        props.setTheme('blue-red-diagonal')
-        ReactGA.event({category: 'Themes', action: 'Selected a theme', label: 'blue-red-diagonal'})
-      }}></div>
+      <Theme theme='green-purple-horizontal'/>
+      <Theme theme='blue-red-pink-horizontal'/>
+      <Theme theme='yellow-orange-pink-horizontal'/>
+      <Theme theme='turquoise-blue-diagonal'/>
+      <Theme theme='blue-red-diagonal'/>
     </div>
   )
 }
