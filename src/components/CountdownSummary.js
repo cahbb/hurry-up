@@ -13,9 +13,8 @@ const CountdownSummary = props => {
         </div>
       </div>
     )  
-  } else {
-    return false
   }
+  return false
 }
 
 CountdownSummary.PropTypes = {

@@ -61,9 +61,8 @@ class Counting extends Component {
           <ChooseTheme setTheme={ this.props.setTheme } />
         </div>
       )
-    } else {
-      return false
     }
+    return false
   }
 }
 

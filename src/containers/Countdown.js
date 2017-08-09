@@ -18,7 +18,9 @@ class Countdown extends Component {
 
     return (
       <div className={ `countdown ${theme}` }>
-        <img className="logo" src={require('../assets/images/logo.svg')} alt="hurry up!"/>
+        <div className="logo">
+          <img src={require('../assets/images/logo.svg')} alt="hurry up!"/>
+        </div>
         <CreateCountdown
           isCounting = { isCounting }
           hasBeenCounting = { hasBeenCounting }
