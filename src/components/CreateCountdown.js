@@ -10,6 +10,15 @@ class CreateCountdown extends Component {
     targetTimeMinutes: ''
   }
 
+  componentDidMount() {
+    this.input.focus()
+  }
+
+  focus() {
+    // Explicitly focus the text input using the raw DOM API
+    this.input.focus();
+  }
+
   handeChange = (e) => {
     const name = e.target.name
     this.setState({ [name]: e.target.value })
@@ -39,23 +48,39 @@ class CreateCountdown extends Component {
           <form onSubmit={ this.startCounter } >
             <div className="input-group">
               <label>It's</label>
-              <input className="input-title" name="title" type="text" onChange={ this.handeChange } />
+              <input
+                className="input-title"
+                ref={(input) => { this.input = input }}
+                name="title"
+                type="text"
+                onChange={ this.handeChange } />
             </div>
 
             <div className="input-group">
               <label>At</label>
-              <input className="input-time" name="targetTimeHours" type="number" min={0} max={23} onChange={ this.handeChange } />
+              <input
+                className="input-time"
+                name="targetTimeHours"
+                type="number"
+                min={0}
+                max={23}
+                onChange={ this.handeChange } />
               <span className="colon">:</span>
-              <input className="input-time" name="targetTimeMinutes" type="number" min={0} max={59} onChange={ this.handeChange } />
+              <input
+                className="input-time"
+                name="targetTimeMinutes"
+                type="number"
+                min={0}
+                max={59}
+                onChange={ this.handeChange } />
               <input type="submit" className="btn" value="Hurry up!" />
             </div>
           </form>
           <ChooseTheme setTheme={ this.props.setTheme } />
         </div>
       )
-    } else {
-      return false
     }
+    return false
   }
 }
 
