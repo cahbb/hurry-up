@@ -58,7 +58,7 @@ class Counting extends Component {
         <div className="counting">
           <p>It's { this.props.title } in</p>
           <p>{ hours } { minutes } { seconds }</p>
-          <ChooseTheme setTheme = { this.props.setTheme } />
+          <ChooseTheme setTheme={ this.props.setTheme } />
         </div>
       )
     } else {

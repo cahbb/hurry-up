@@ -50,7 +50,7 @@ class CreateCountdown extends Component {
               <input type="submit" className="btn" value="Hurry up!" />
             </div>
           </form>
-          <ChooseTheme setTheme = { this.props.setTheme } />
+          <ChooseTheme setTheme={ this.props.setTheme } />
         </div>
       )
     } else {
