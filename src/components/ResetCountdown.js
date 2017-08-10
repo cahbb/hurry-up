@@ -9,5 +9,4 @@ const ResetCounter = props => {
   )
 }
 
-
 export default ResetCounter
