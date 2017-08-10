@@ -29,3 +29,9 @@ export const setTheme = (theme) => {
     theme
   }
 }
+
+export const resetCountdown = () => {
+  return {
+    type: CountdownActionTypes.RESET_COUNTDOWN
+  }
+}

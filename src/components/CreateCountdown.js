@@ -10,14 +10,13 @@ class CreateCountdown extends Component {
     targetTimeMinutes: ''
   }
 
-  componentDidMount() {
-    this.input.focus()
-  }
+  // componentDidMount() {
+  //   this.input.focus()
+  // }
 
-  focus() {
-    // Explicitly focus the text input using the raw DOM API
-    this.input.focus();
-  }
+  // focus() {
+  //   this.input.focus();
+  // }
 
   handeChange = (e) => {
     const name = e.target.name
@@ -50,7 +49,7 @@ class CreateCountdown extends Component {
               <label>It's</label>
               <input
                 className="input-title"
-                ref={(input) => { this.input = input }}
+                // ref={(input) => { this.input = input }}
                 name="title"
                 type="text"
                 onChange={ this.handeChange } />
