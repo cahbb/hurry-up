@@ -10,9 +10,9 @@ class CreateCountdown extends Component {
     targetTimeMinutes: ''
   }
 
-  componentDidMount() {
-    this.input.focus()
-  }
+  // componentDidMount() {
+  //   this.input.focus()
+  // }
 
   focus() {
     // Explicitly focus the text input using the raw DOM API

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ResetCountdown from '../components/ResetCountdown'
 import '../assets/styles/components/Fireworks.css'
 
 const CountdownSummary = props => {
@@ -11,6 +12,7 @@ const CountdownSummary = props => {
           <div className="before"></div>
           <div className="after"></div>
         </div>
+        <ResetCountdown resetCountdown={ props.resetCountdown } />
       </div>
     )  
   }

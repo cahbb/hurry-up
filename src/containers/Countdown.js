@@ -13,6 +13,7 @@ class Countdown extends Component {
     const { dispatch, title, theme, isCounting, remainingTime, previousTime, hasBeenCounting } = this.props
     const startCounter = bindActionCreators(CountdownActionCreators.startCounter, dispatch)
     const stopCounter = bindActionCreators(CountdownActionCreators.stopCounter, dispatch)
+    const resetCountdown = bindActionCreators(CountdownActionCreators.resetCountdown, dispatch)
     const decrementCounter = bindActionCreators(CountdownActionCreators.decrementCounter, dispatch)
     const setTheme = bindActionCreators(CountdownActionCreators.setTheme, dispatch)
 
@@ -33,11 +34,13 @@ class Countdown extends Component {
           previousTime = { previousTime }
           decrementCounter = { decrementCounter }
           stopCounter = { stopCounter }
-          setTheme = { setTheme } />
+          setTheme = { setTheme }
+          resetCountdown = { resetCountdown } />
         <CountdownSummary 
           title = { title }
           isCounting = { isCounting }
-          hasBeenCounting = { hasBeenCounting } />
+          hasBeenCounting = { hasBeenCounting }
+          resetCountdown = { resetCountdown } />
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ChooseTheme from '../components/ChooseTheme'
+import ResetCountdown from '../components/ResetCountdown'
 import '../assets/styles/components/Counting.css'
 
 class Counting extends Component {
@@ -59,6 +60,7 @@ class Counting extends Component {
           <p>It's { this.props.title } in</p>
           <p>{ hours } { minutes } { seconds }</p>
           <ChooseTheme setTheme={ this.props.setTheme } />
+          <ResetCountdown resetCountdown={ this.props.resetCountdown } />
         </div>
       )
     }

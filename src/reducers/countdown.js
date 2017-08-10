@@ -27,6 +27,13 @@ export default function Countdown(state=initialState, action) {
         hasBeenCounting: true
       }
     }
+    case CountdownActionTypes.RESET_COUNTDOWN: {
+      return {
+        ...state,
+        isCounting: false,
+        hasBeenCounting: false
+      }
+    }
     case CountdownActionTypes.DECREMENT_COUNTER: {
       let remainingTime = action.remainingTime
       if (action.remainingTime < 0) {
