@@ -4,7 +4,7 @@ import '../assets/styles/components/ResetCountdown.css'
 const ResetCounter = props => {
   return (
     <div className="reset-countdown" onClick={ () => { props.resetCountdown() } }>
-      <div className="btn">Create new</div>
+      <div className="btn">Reset counter</div>
     </div>
   )
 }
