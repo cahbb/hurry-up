@@ -5,8 +5,8 @@ import * as CountdownActionCreators from '../actions/countdown'
 import CreateCountdown from '../components/CreateCountdown'
 import Counting from '../components/Counting'
 import CountdownSummary from '../components/CountdownSummary'
-import Logo from '../components/Logo'
-import ChooseTheme from '../components/ChooseTheme'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import '../assets/styles/components/Countdown.css'
 import '../assets/styles/components/Themes.css'
 
@@ -42,14 +42,9 @@ class Countdown extends Component {
 
     return (
       <div className={ `countdown ${theme}` }>
-        <Logo />
+        <Header setTheme={ setTheme } />
         { view }
-        {
-          !isCounting && hasBeenCounting ?
-          false
-          :
-          <ChooseTheme setTheme={ setTheme } />
-        }
+        <Footer />
       </div>
     )
   }
