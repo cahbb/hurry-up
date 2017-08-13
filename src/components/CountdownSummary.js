@@ -2,21 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ResetCountdown from '../components/ResetCountdown'
 import '../assets/styles/components/Fireworks.css'
+import '../assets/styles/components/CountdownSummary.css'
 
 const CountdownSummary = props => {
-  if (!props.isCounting && props.hasBeenCounting) {
-    return (
-      <div className="countdown-summary">
-        <p>It's { props.title }</p>
-        <div className="pyro">
-          <div className="before"></div>
-          <div className="after"></div>
-        </div>
-        <ResetCountdown resetCountdown={ props.resetCountdown } />
+  return (
+    <div className="countdown-summary">
+      <p>It's { props.title }</p>
+      <div className="pyro">
+        <div className="before"></div>
+        <div className="after"></div>
       </div>
-    )  
-  }
-  return false
+      <ResetCountdown resetCountdown={ props.resetCountdown } />
+    </div>
+  )
 }
 
 CountdownSummary.PropTypes = {
