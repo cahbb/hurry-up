@@ -1,37 +1,27 @@
 import * as CountdownActionTypes from '../actiontypes/countdown'
 
-export const startCounter = (title, remainingTime, previousTime) => {
-  return {
-    type: CountdownActionTypes.START_COUNTER,
-    title,
-    remainingTime,
-    previousTime
-  }
-}
+export const startCounter = (title, remainingTime, previousTime) => ({
+  type: CountdownActionTypes.START_COUNTER,
+  title,
+  remainingTime,
+  previousTime
+})
 
-export const stopCounter = () => {
-  return {
-    type: CountdownActionTypes.STOP_COUNTER
-  }
-}
+export const stopCounter = () => ({
+  type: CountdownActionTypes.STOP_COUNTER
+})
 
-export const decrementCounter = (remainingTime, previousTime) => {
-  return {
-    type: CountdownActionTypes.DECREMENT_COUNTER,
-    remainingTime,
-    previousTime
-  }
-}
+export const decrementCounter = (remainingTime, previousTime) => ({
+  type: CountdownActionTypes.DECREMENT_COUNTER,
+  remainingTime,
+  previousTime
+})
 
-export const setTheme = (theme) => {
-  return {
-    type: CountdownActionTypes.SET_THEME,
-    theme
-  }
-}
+export const setTheme = (theme) => ({
+  type: CountdownActionTypes.SET_THEME,
+  theme
+})
 
-export const resetCountdown = () => {
-  return {
-    type: CountdownActionTypes.RESET_COUNTDOWN
-  }
-}
+export const resetCountdown = () => ({
+  type: CountdownActionTypes.RESET_COUNTDOWN
+})
