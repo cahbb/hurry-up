@@ -19,7 +19,9 @@ const store = createStore(
 )
 
 store.subscribe(throttle(() => {
-  saveState(store.getState())
+  if (store.getState().isCounting) {
+    saveState(store.getState())
+  }
 }, 1000))
 
 ReactDOM.render(

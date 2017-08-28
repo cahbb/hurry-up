@@ -6,7 +6,6 @@ import CreateCountdown from '../components/CreateCountdown'
 import Counting from '../components/Counting'
 import CountdownSummary from '../components/CountdownSummary'
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 import '../assets/styles/components/Countdown.css'
 import '../assets/styles/components/Themes.css'
 
@@ -22,29 +21,28 @@ class Countdown extends Component {
     let view = null
     if (!isCounting && !hasBeenCounting) {
       view = <CreateCountdown
-               startCounter={ startCounter }
-               setTheme={ setTheme } />
+      startCounter={ startCounter }
+      setTheme={ setTheme } />
     } else if (isCounting) {
       view = <Counting
-               title={ title }
-               isCounting={ isCounting }
-               remainingTime={ remainingTime }
-               previousTime={ previousTime }
-               decrementCounter={ decrementCounter }
-               stopCounter={ stopCounter }
-               setTheme={ setTheme }
-               resetCountdown={ resetCountdown } />
+      title={ title }
+      isCounting={ isCounting }
+      remainingTime={ remainingTime }
+      previousTime={ previousTime }
+      decrementCounter={ decrementCounter }
+      stopCounter={ stopCounter }
+      setTheme={ setTheme }
+      resetCountdown={ resetCountdown } />
     } else if (!isCounting && hasBeenCounting) {
       view = <CountdownSummary
-               title={ title }
-               resetCountdown={ resetCountdown } />
+      title={ title }
+      resetCountdown={ resetCountdown } />
     }
 
     return (
       <div className={ `countdown ${theme}` }>
         <Header setTheme={ setTheme } />
         { view }
-        <Footer />
       </div>
     )
   }

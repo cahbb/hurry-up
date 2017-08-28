@@ -21,6 +21,7 @@ export default function Countdown(state=initialState, action) {
       }
     }
     case CountdownActionTypes.STOP_COUNTER: {
+      localStorage.clear()
       return {
         ...state,
         isCounting: false,
@@ -28,6 +29,7 @@ export default function Countdown(state=initialState, action) {
       }
     }
     case CountdownActionTypes.RESET_COUNTDOWN: {
+      localStorage.clear()
       return {
         ...state,
         isCounting: false,
