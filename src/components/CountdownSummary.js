@@ -7,7 +7,7 @@ import '../assets/styles/components/CountdownSummary.css'
 const CountdownSummary = props => {
   return (
     <div className="countdown-summary">
-      <p>It's { props.title }</p>
+      <p>{ props.title }</p>
       <div className="pyro">
         <div className="before"></div>
         <div className="after"></div>

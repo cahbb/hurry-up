@@ -60,7 +60,7 @@ class Counting extends Component {
 
     return (
       <div className="counting">
-        <p>It's { this.props.title } in</p>
+        <p>{ this.props.title } in</p>
         <p>{ hours } { minutes } { seconds }</p>
         <ResetCountdown resetCountdown={ this.props.resetCountdown } />
       </div>

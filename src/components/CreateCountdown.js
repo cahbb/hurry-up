@@ -50,21 +50,21 @@ class CreateCountdown extends Component {
       <div className="create-countdown">
         <form onSubmit={ this.startCounter } >
           <div className="input-group">
-            <label>It's</label>
             <input
               className="input-title"
               ref={(input) => { this.input = input }}
               name="title"
               type="text"
+              placeholder="It's beertime"
               onChange={ this.handeChange } />
           </div>
 
           <div className="input-group">
-            <label>At</label>
             <input
               className="input-time"
               name="targetTimeHours"
               type="number"
+              placeholder="21"
               min={0}
               max={23}
               onChange={ this.handeChange } />
@@ -73,6 +73,7 @@ class CreateCountdown extends Component {
               className="input-time"
               name="targetTimeMinutes"
               type="number"
+              placeholder="43"
               min={0}
               max={59}
               onChange={ this.handeChange } />

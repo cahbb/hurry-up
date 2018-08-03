@@ -24,8 +24,24 @@ input:focus {
   outline: none;
   box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.1);
 }
+::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+::-moz-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+:-moz-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
 .input-title {
-  width: 30rem;
+  width: 38rem;
 }
 .input-time {
   width: 10rem;
